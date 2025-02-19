@@ -3,31 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Webpage</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Software Consulting Company</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
     <!-- Header Section -->
     <header>
+        <div class="logo" style="padding-left: 100px;">
+            <h1>GeekFlux</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li style="padding-right: 100px;"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <section class="main-content">
-        <h1>Welcome to My Website</h1>
-        <p>This is a sample webpage using HTML and CSS. It is fully responsive and adapts to different screen sizes.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Innovative Solutions for Your Business</h2>
+            <p>Your trusted software consulting partner, delivering custom software solutions tailored to your needs.</p>
+            <a href="#contact" class="cta-btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a leading software consulting company, providing innovative technology solutions to businesses around the world. Our team of experts specializes in custom software development, system integrations, and IT consulting services.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-item">
+                <h3>Custom Software Development</h3>
+                <p>We build custom software that meets your specific business needs, helping you increase efficiency and drive growth.</p>
+            </div>
+            <div class="service-item">
+                <h3>System Integration</h3>
+                <p>Our team integrates existing systems to improve the flow of information and simplify operations.</p>
+            </div>
+            <div class="service-item">
+                <h3>IT Consulting</h3>
+                <p>We provide expert advice to help you navigate the complex world of technology, optimize your IT infrastructure, and make informed decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Reach out to us for any inquiries or to schedule a consultation.</p>
+            <form action="#">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 MyWebsite. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 TechConsult. All Rights Reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>
