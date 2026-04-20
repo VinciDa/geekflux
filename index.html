@@ -4,87 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Software Consulting Company</title>
+    <meta name="description" content="GeekFlux is a modern multi-category blog platform covering lifestyle, education, technology, and fresh ideas for curious readers.">
+    <meta name="keywords" content="blog platform, lifestyle blog, education blog, technology blog, geekflux">
+    <title>GeekFlux | Lifestyle, Education and Technology Blogs</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <div class="logo" style="padding-left: 100px;">
-            <h1>GeekFlux</h1>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">GeekFlux</a>
+            <nav class="main-nav" aria-label="Primary navigation">
+                <ul>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#featured">Featured</a></li>
+                    <li><a href="#latest-posts">Latest Posts</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li style="padding-right: 100px;"><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Innovative Solutions for Your Business</h2>
-            <p>Your trusted software consulting partner, delivering custom software solutions tailored to your needs.</p>
-            <a href="#contact" class="cta-btn">Get in Touch</a>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>We are a leading software consulting company, providing innovative technology solutions to businesses around the world. Our team of experts specializes in custom software development, system integrations, and IT consulting services.</p>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-item">
-                <h3>Custom Software Development</h3>
-                <p>We build custom software that meets your specific business needs, helping you increase efficiency and drive growth.</p>
+    <main>
+        <section class="hero">
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <p class="hero-label">A magazine-style home for ideas that matter</p>
+                    <h1>One platform for stories on lifestyle, education, technology, and more.</h1>
+                    <p class="hero-text">GeekFlux brings together practical inspiration, learning resources, and future-focused perspectives in a clean blog experience where every article lives on its own page.</p>
+                    <div class="hero-actions">
+                        <a href="#latest-posts" class="cta-btn">Explore Articles</a>
+                        <a href="#categories" class="secondary-btn">Browse Categories</a>
+                    </div>
+                </div>
+                <div class="hero-panel">
+                    <p class="hero-panel-label">Popular categories</p>
+                    <div class="hero-tags">
+                        <span>Lifestyle</span>
+                        <span>Education</span>
+                        <span>Technology</span>
+                        <span>Productivity</span>
+                        <span>Culture</span>
+                        <span>Wellness</span>
+                    </div>
+                    <div class="hero-panel-card">
+                        <p class="post-meta">Editor's pick</p>
+                        <h2>How balanced routines, lifelong learning, and digital tools shape a better everyday life.</h2>
+                        <a href="#featured" class="post-link light-link">See the featured collection</a>
+                    </div>
+                </div>
             </div>
-            <div class="service-item">
-                <h3>System Integration</h3>
-                <p>Our team integrates existing systems to improve the flow of information and simplify operations.</p>
+        </section>
+
+        <section id="categories" class="categories section-spacing">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Categories</p>
+                    <h2>Discover every corner of the platform</h2>
+                    <p>Start from the topic you care about and dive into posts designed for readers who want clarity, inspiration, and useful takeaways.</p>
+                </div>
+                <div class="category-grid">
+                    <article class="category-card">
+                        <span class="category-badge lifestyle-badge">Lifestyle</span>
+                        <h3>Wellness, routines, travel, and mindful living.</h3>
+                        <p>Articles about designing a more intentional, creative, and balanced day-to-day life.</p>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-badge education-badge">Education</span>
+                        <h3>Learning strategies, student growth, and career prep.</h3>
+                        <p>Resources for students, self-learners, and anyone building new skills with purpose.</p>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-badge technology-badge">Technology</span>
+                        <h3>AI, apps, digital trends, and the future of work.</h3>
+                        <p>Clear explainers and opinion pieces on the tools and technologies shaping modern life.</p>
+                    </article>
+                </div>
             </div>
-            <div class="service-item">
-                <h3>IT Consulting</h3>
-                <p>We provide expert advice to help you navigate the complex world of technology, optimize your IT infrastructure, and make informed decisions.</p>
+        </section>
+
+        <section id="featured" class="featured-post section-spacing">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Featured collection</p>
+                    <h2>Three sample blog posts, three separate pages</h2>
+                    <p>The homepage now acts as a publishing hub, while each article opens as its own dedicated reading experience.</p>
+                </div>
+                <div class="featured-layout">
+                    <article class="featured-card featured-primary">
+                        <p class="post-meta">Lifestyle · April 20, 2026 · 6 min read</p>
+                        <h3>Designing a Morning Routine That Actually Fits Real Life</h3>
+                        <p>Small, realistic habits can help you create calmer mornings without chasing a perfect productivity checklist.</p>
+                        <a href="/lifestyle-morning-routine/" class="post-link">Read the lifestyle article</a>
+                    </article>
+                    <div class="featured-stack">
+                        <article class="featured-card">
+                            <p class="post-meta">Education · April 18, 2026 · 7 min read</p>
+                            <h3>Study Smarter: Building a Learning System You Can Sustain</h3>
+                            <p>Create an education workflow that supports focus, revision, and consistent progress.</p>
+                            <a href="/education-study-system/" class="post-link">Open education post</a>
+                        </article>
+                        <article class="featured-card">
+                            <p class="post-meta">Technology · April 16, 2026 · 5 min read</p>
+                            <h3>How AI Tools Are Changing Everyday Productivity</h3>
+                            <p>A practical look at where technology helps, where it distracts, and how to use it intentionally.</p>
+                            <a href="/technology-ai-productivity/" class="post-link">Open technology post</a>
+                        </article>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>We’d love to hear from you! Reach out to us for any inquiries or to schedule a consultation.</p>
-            <form action="#">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
+        <section id="latest-posts" class="latest-posts section-spacing">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Latest posts</p>
+                    <h2>Fresh reads from across the platform</h2>
+                </div>
+                <div class="post-grid">
+                    <article class="post-card">
+                        <p class="post-meta">Education · Exam Updates</p>
+                        <h3>JEE Main Session 2 Result 2026 Live Updates: Expected Category-Wise Cut-Off Percentile</h3>
+                        <p>Check expected cut-off ranges for General, GEN-EWS, OBC, SC, ST, and PwD categories based on previous year trends.</p>
+                        <a href="/education-jee-main-session-2-result-2026/" class="post-link">Read more</a>
+                    </article>
+                    <article class="post-card">
+                        <p class="post-meta">Lifestyle</p>
+                        <h3>Designing a Morning Routine That Actually Fits Real Life</h3>
+                        <p>Build energy and consistency with a routine that works around your schedule instead of against it.</p>
+                        <a href="/lifestyle-morning-routine/" class="post-link">Read more</a>
+                    </article>
+                    <article class="post-card">
+                        <p class="post-meta">Education</p>
+                        <h3>Study Smarter: Building a Learning System You Can Sustain</h3>
+                        <p>Use planning, review cycles, and active recall to create a study rhythm that lasts.</p>
+                        <a href="/education-study-system/" class="post-link">Read more</a>
+                    </article>
+                    <article class="post-card">
+                        <p class="post-meta">Technology</p>
+                        <h3>How AI Tools Are Changing Everyday Productivity</h3>
+                        <p>See how digital assistants are reshaping writing, research, and task management for modern teams.</p>
+                        <a href="/technology-ai-productivity/" class="post-link">Read more</a>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
+        <section class="spotlight section-spacing">
+            <div class="container spotlight-grid">
+                <div>
+                    <p class="section-kicker">Why this homepage works</p>
+                    <h2>A clear theme without limiting future growth</h2>
+                </div>
+                <div class="spotlight-copy">
+                    <p>This layout gives your site a flexible blog-platform identity instead of tying it to a single topic. You can keep adding new categories, post cards, and standalone article pages as your content library grows.</p>
+                    <p>Because the homepage is now structured like a publication, readers can scan categories first, then open individual articles on dedicated pages for a cleaner reading experience.</p>
+                </div>
+            </div>
+        </section>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+        <section id="about" class="about section-spacing">
+            <div class="container about-layout">
+                <div>
+                    <p class="section-kicker">About GeekFlux</p>
+                    <h2>A modern home for curious readers</h2>
+                </div>
+                <p>GeekFlux is a multi-category blog platform built to publish thoughtful content across lifestyle, education, technology, and emerging interests. It is designed to feel editorial, modern, and easy to expand as new articles are added.</p>
+            </div>
+        </section>
+    </main>
 
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 TechConsult. All Rights Reserved.</p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 GeekFlux. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#categories">Categories</a>
+                <a href="#latest-posts">Latest Posts</a>
+                <a href="#about">About</a>
+            </div>
         </div>
     </footer>
-
 </body>
 </html>
