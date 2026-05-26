@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lab Partner That Never Sleeps — AI in Science</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0d0b;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --rust: #c4440a;
+    --gold: #c9a227;
+    --steel: #4a5568;
+    --mist: #e8e4db;
+    --accent-blue: #1a3a5c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--warm-white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background-color: var(--ink);
+    color: var(--cream);
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -60px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,68,10,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,39,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .kicker::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.7);
+    max-width: 580px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: rgba(245,240,232,0.45);
+    letter-spacing: 0.05em;
+    flex-wrap: wrap;
+  }
+
+  .meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ── ARTICLE LAYOUT ── */
+  article {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 72px 40px 100px;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-left: 3px solid var(--rust);
+    padding: 24px 0 24px 36px;
+    margin: 56px 0;
+    position: relative;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 64px 0 24px;
+    line-height: 1.25;
+    position: relative;
+  }
+
+  h2::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--rust);
+    margin-bottom: 20px;
+  }
+
+  /* ── BODY TEXT ── */
+  p { margin-bottom: 24px; color: #2a2620; }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: var(--cream);
+    border: 1px solid var(--mist);
+    border-radius: 2px;
+    padding: 36px 40px;
+    margin: 48px 0;
+    position: relative;
+  }
+
+  .callout-label {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 14px;
+  }
+
+  .callout p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+    color: var(--steel);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 56px 0;
+    color: var(--mist);
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--mist);
+  }
+
+  .divider-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ── HIGHLIGHT STAT ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    margin: 48px 0;
+    background: var(--mist);
+  }
+
+  .stat-cell {
+    background: var(--warm-white);
+    padding: 32px 28px;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--steel);
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── FOOTNOTE / ASIDE ── */
+  .aside {
+    float: right;
+    width: 260px;
+    margin: 0 0 32px 40px;
+    padding: 24px;
+    background: var(--accent-blue);
+    color: var(--cream);
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .aside-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .aside p { color: rgba(245,240,232,0.8); margin-bottom: 0; font-size: 0.85rem; }
+
+  /* ── CLOSING ── */
+  .closing {
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--mist);
+    font-style: italic;
+    color: var(--steel);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  header .header-inner > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .kicker { animation-delay: 0.1s; }
+  h1 { animation-delay: 0.22s; }
+  .subtitle { animation-delay: 0.34s; }
+  .meta { animation-delay: 0.46s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    header { padding: 60px 24px 48px; }
+    article { padding: 48px 24px 80px; }
+    .aside { float: none; width: 100%; margin: 0 0 32px 0; }
+    .stat-cell { padding: 24px 20px; }
+    .pull-quote { padding-left: 24px; }
+    .callout { padding: 28px 24px; }
+  }
+
+  /* ── SUBTLE GRAIN ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="kicker">Science & Technology</div>
+    <h1>The Lab Partner<br>That Never <em>Sleeps</em></h1>
+    <p class="subtitle">Artificial intelligence has crossed a threshold — it no longer just answers questions about science. It is beginning to do science.</p>
+    <div class="meta">
+      <span>May 2026</span>
+      <span>·</span>
+      <span>9 min read</span>
+      <span>·</span>
+      <span>Research & Discovery</span>
+    </div>
+  </div>
+</header>
+
+<article>
+
+  <p>There is a well-worn image of the lone scientist — someone hunched under fluorescent light at two in the morning, surrounded by printed papers and half-cold coffee, trying to coax a hypothesis out of an unruly dataset. That image is not exactly wrong, but it is becoming incomplete. Increasingly, there is a second presence in the room: an AI system capable of reading every paper ever published on the topic, running thousands of computational simulations overnight, and handing back a shortlist of testable ideas by morning.</p>
+
+  <p>We have entered a new era of scientific inquiry — one where artificial intelligence is not just a powerful search engine, but a genuine intellectual collaborator. The transition is happening fast, and it raises some of the most fascinating and troubling questions in the history of how human beings come to understand the world.</p>
+
+  <div class="pull-quote">
+    <p>"Research is entering a 'co-pilot to lab-pilot' transition — AI no longer merely interprets knowledge, it increasingly acts upon it."</p>
+  </div>
+
+  <h2>From Chatbot to Collaborator</h2>
+
+  <p>Not long ago, AI in research meant autocomplete for literature searches or statistical tools dressed up in smarter clothing. That era is over. Today, AI agents are demonstrating the ability to autonomously perform tasks across the entire drug discovery pipeline — from target identification and design-make-test-analyze cycles to preclinical safety studies and drug repurposing — compressing research timelines that once spanned months into hours.</p>
+
+  <p>The mechanism behind this shift is architecturally elegant. The most advanced systems work as "ReAct agents" — they take evidence, form a hypothesis, transform that hypothesis into predictions, test those predictions experimentally, and retain what is learned from previous cycles. It sounds, in a word, like science. Because it largely is.</p>
+
+  <div class="aside">
+    <div class="aside-title">What is dusty plasma?</div>
+    <p>A dusty plasma is a plasma containing suspended microscopic particles. Dust particles are charged, and the plasma and particles behave collectively — shifting from weakly coupled gaseous states all the way to crystalline "plasma crystals." It is found everywhere from the interstellar medium to Earth's upper atmosphere — and it is notoriously difficult to model.</p>
+  </div>
+
+  <p>Consider one landmark recent example. A team of physicists used AI not merely to sort or visualise data from dusty plasma — the strange, charged-particle-laden medium sometimes called a fourth state of matter — but to uncover previously invisible interaction patterns within it. Because of the additional complexity of studying plasmas with charged dust particles, dusty plasmas have long been known as "complex plasmas," and they remain a field of active, difficult research. What the AI revealed were physical behaviours that had been hiding in plain sight, buried within data too dense for human analysis to penetrate unaided.</p>
+
+  <p>It is the difference between a telescope that shows you where to look and one that notices, entirely on its own, that something unexpected is happening at the edge of the frame.</p>
+
+  <div class="divider"><span class="divider-symbol">❧</span></div>
+
+  <h2>Autonomous Laboratories: Science Without Downtime</h2>
+
+  <p>The ambition does not stop at hypothesis generation. The most forward-looking research teams are now building what they call "autonomous research laboratories" — environments where networks of AI agents collaborate not just to analyse data, but to design experiments, run them robotically, interpret the results, and even draft the resulting papers.</p>
+
+  <p>Researchers describe this as a "co-pilot to lab-pilot" transition — a progression from AI systems that interpret scientific knowledge to ones that actively act upon it, promising dramatic efficiency gains while simultaneously raising serious questions about reproducibility, auditability, and equitable access.</p>
+
+  <p>The drug discovery world has perhaps moved furthest and fastest. A comprehensive review published in late 2025 by researchers from the Broad Institute, Cambridge University, and Uppsala University — titled "AI Agents in Drug Discovery" — offered the first detailed look at these systems as they are being deployed in real-world drug development. The picture that emerged was striking.</p>
+
+  <div class="callout">
+    <div class="callout-label">In Practice</div>
+    <p>FutureHouse's AI system Robin was given a query about age-related macular degeneration. It reviewed the dry AMD literature, hypothesised a list of FDA-approved drugs that might help, and designed preclinical assays to test them. Researchers carried out the proposed experiments and returned data to Robin, which analysed the results and proposed follow-ups — ultimately identifying two candidate drugs, one of which had not previously been considered in this context. The bottleneck was no longer ideas. It was biology itself: waiting for cells to grow.</p>
+  </div>
+
+  <p>"The challenge is that AI moves so much faster than biology," as one researcher put it. That tension — between the speed of machine intelligence and the irreducible patience required by living systems — will define much of what the next decade of AI-assisted science looks like.</p>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-number">50–70%</div>
+      <div class="stat-label">Potential reduction in drug discovery timelines through AI agent systems</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-number">months → hours</div>
+      <div class="stat-label">Compression of research timeline demonstrated in recent agentic AI studies</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-number">$20B+</div>
+      <div class="stat-label">Projected AI in drug discovery market by 2030, up from ~$1.3B in 2023</div>
+    </div>
+  </div>
+
+  <h2>The Brilliant, Cautious Optimiser — and Its Discontents</h2>
+
+  <p>Here is where the story gets complicated, and where the most important scientific debate of our generation is quietly taking shape.</p>
+
+  <p>The same qualities that make AI so effective at accelerating discovery — its training on vast archives of prior work, its tendency to identify high-confidence pathways, its efficiency at searching known solution spaces — may also make it subtly conservative. An AI shaped by the corpus of existing science will, by nature, be most drawn to ideas that look like successful ideas from the past. It optimises. It converges. It finds the highest-probability answer.</p>
+
+  <p>But science, at its most generative, has rarely been an optimisation problem. Penicillin was discovered because a petri dish was contaminated. The structure of DNA was revealed partly through an accidental insight about the base ratios in nucleotides. Quantum mechanics emerged not from refining classical physics but from abandoning its assumptions entirely. These were not high-probability ideas. They were, in the language of research culture, "weird" — and their weirdness was precisely the point.</p>
+
+  <p>The worry gaining traction among researchers is that AI-assisted science might systematically filter out the weird. When an AI system evaluates which experiments are most worth running, or which hypotheses are most worth testing, it draws implicitly on a sense of what has worked before. The result could be a subtle gravitational pull toward the predictable — toward incremental advances dressed in the language of breakthrough.</p>
+
+  <div class="pull-quote">
+    <p>"The question is not whether AI can accelerate science. It plainly can. The question is whether speed and volume of discovery are the same thing as depth."</p>
+  </div>
+
+  <p>As one MIT researcher noted, AI is "a collaborator, not a replacement" — scientists still drive hypothesis generation, candidate evaluation, and strategic decisions. That framing is reassuring, but it sidesteps a harder question: what happens when the AI's suggestions are so fast, so confident, and so voluminous that human researchers begin deferring to them reflexively? What happens when the weight of algorithmic consensus quietly reshapes what questions even get asked?</p>
+
+  <p>This is not a hypothetical risk. It is an emerging structural reality. And it deserves the same careful scrutiny we would apply to any powerful new instrument that changes what scientists are able to see.</p>
+
+  <div class="divider"><span class="divider-symbol">❧</span></div>
+
+  <h2>What Gets Lost, and What Might Be Gained</h2>
+
+  <p>There is a steelman case for optimism — and it is a strong one.</p>
+
+  <p>The same AI systems that might bias science toward the familiar also have the capacity to detect patterns that no human would ever notice — to perceive signal in noise at scales and dimensions simply unavailable to biological minds. The dusty plasma discovery is one example. The revelation that a protein can fold in a way that nobody predicted is another. These are not conservative outputs. They are genuinely surprising, precisely because the AI was able to hold more variables in mind simultaneously than any human team could.</p>
+
+  <p>There is also a more democratic possibility. Much of what we call scientific originality has historically been shaped not just by intellect but by access — to well-funded labs, elite institutions, established networks of peer review. AI could lower the cost of doing serious science dramatically, enabling researchers at institutions far from the traditional centres of power to generate hypotheses and test ideas that would previously have required enormous resources.</p>
+
+  <p>By the end of the decade, experts anticipate broader adoption of foundation models trained on multimodal biomedical data, autonomous AI lab agents, and continuous design-test cycles that will dramatically accelerate discovery — though this will require robust regulatory frameworks, better data infrastructure, and a new generation of interdisciplinary talent fluent in both biology and machine learning.</p>
+
+  <p>None of this resolves the tension. It deepens it. Because the same democratisation of scientific capacity could also mean the democratisation of AI's biases — a world where researchers everywhere are being subtly nudged toward the same clusters of "likely" ideas, converging from many directions onto an increasingly narrow range of questions.</p>
+
+  <h2>The Human Job in the Age of the Machine Scientist</h2>
+
+  <p>Perhaps the most important reframe is this: the question is not whether AI will replace scientists, but what kind of scientist the AI age most urgently requires.</p>
+
+  <p>It requires, above all, people who are comfortable being uncomfortable — who can look at a confident AI recommendation and ask whether the confidence itself is a symptom of something missing. It requires scientists with what we might call a tolerance for productive weirdness: the willingness to pursue an idea not because the model endorsed it, but because something about it refuses to go away.</p>
+
+  <p>It also requires institutional structures that actively reward this. If funding bodies, journals, and tenure committees continue to value volume and velocity above all else, the AI age will simply amplify those incentives to their logical conclusion. If, on the other hand, the scientific community uses this moment to ask harder questions about what discovery actually means — what it is for, who it serves, and which kinds of surprise are worth protecting — then AI might not flatten originality so much as force us to articulate, for the first time with real clarity, what originality in science actually is.</p>
+
+  <p>That would be a strange and wonderful outcome. Almost, you might say, the kind of high-improbability breakthrough that no model would have predicted.</p>
+
+  <div class="closing">
+    <p>The lab partner that never sleeps has arrived. Whether it helps us dream bigger, or merely dream faster, depends less on the technology than on the choices we make about how to use it — and what we insist on protecting in the process.</p>
+  </div>
+
+</article>
+
+</body>
+</html>

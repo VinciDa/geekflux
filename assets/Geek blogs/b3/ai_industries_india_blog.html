@@ -1,0 +1,333 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#1a1a1a;--muted:#6b6b6b;--faint:#f4f1ec;--accent:#c85a2a;
+    --accent2:#1d6a8e;--accent3:#2a7a4a;--border:#e0dbd2;
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'DM Sans',sans-serif;
+  }
+  body{font-family:var(--sans);color:var(--ink);background:#faf8f5;line-height:1.7}
+
+  .blog{max-width:780px;margin:0 auto;padding:3rem 2rem 5rem}
+
+  .kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1.2rem}
+  h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);line-height:1.15;font-weight:700;margin-bottom:1.4rem;color:#111}
+  .subtitle{font-size:1.15rem;color:var(--muted);font-weight:300;line-height:1.65;max-width:620px;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:2rem}
+
+  .meta{display:flex;gap:1.5rem;font-size:12.5px;color:var(--muted);margin-bottom:3rem;flex-wrap:wrap}
+  .meta span{display:flex;align-items:center;gap:.4rem}
+  .meta i{font-size:14px}
+
+  .stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:3rem}
+  .stat-cell{background:#fff;padding:1.25rem 1rem;text-align:center}
+  .stat-num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
+  .stat-label{font-size:11.5px;color:var(--muted);margin-top:.35rem;line-height:1.4}
+
+  h2{font-family:var(--serif);font-size:1.65rem;font-weight:700;margin:2.8rem 0 1rem;color:#111}
+  h3{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:#222;margin:1.8rem 0 .6rem}
+  p{font-size:1.02rem;line-height:1.8;margin-bottom:1.1rem;color:#222}
+
+  .pullquote{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--accent2);border-left:3px solid var(--accent2);padding:.8rem 0 .8rem 1.5rem;margin:2rem 0;line-height:1.55}
+
+  .industry-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:560px){.industry-grid{grid-template-columns:1fr}}
+
+  .industry-card{border:1px solid var(--border);border-radius:12px;padding:1.25rem;background:#fff;position:relative;overflow:hidden}
+  .industry-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+  .card-it::before{background:#c85a2a}
+  .card-bfsi::before{background:#1d6a8e}
+  .card-mfg::before{background:#2a7a4a}
+  .card-health::before{background:#8a3a8a}
+  .card-retail::before{background:#b87a20}
+  .card-gcc::before{background:#3a5aa0}
+  .card-logistics::before{background:#5a7a3a}
+  .card-bpo::before{background:#8a4a2a}
+
+  .card-icon{font-size:1.6rem;margin-bottom:.6rem}
+  .card-title{font-family:var(--serif);font-weight:700;font-size:1.05rem;margin-bottom:.25rem}
+  .card-share{font-size:11px;color:var(--muted);margin-bottom:.6rem}
+  .badge{display:inline-block;font-size:10.5px;font-weight:500;padding:2px 8px;border-radius:99px;margin-bottom:.6rem}
+  .badge-hot{background:#ffeee8;color:#c85a2a}
+  .badge-surge{background:#e8f4ff;color:#1d6a8e}
+  .badge-fast{background:#eaffea;color:#2a7a4a}
+  .card-desc{font-size:13px;color:var(--muted);line-height:1.55}
+
+  .bar-chart{margin:2rem 0}
+  .bar-row{display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;font-size:13.5px}
+  .bar-label{width:180px;flex-shrink:0;color:var(--ink);font-weight:500}
+  .bar-track{flex:1;background:#ede8e0;border-radius:99px;height:10px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:99px;animation:grow .9s ease forwards}
+  @keyframes grow{from{width:0}to{width:var(--w)}}
+  .bar-pct{width:38px;text-align:right;color:var(--muted);font-size:12px}
+
+  .growth-row{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem;font-size:13px}
+  .growth-label{width:220px;flex-shrink:0;color:var(--ink)}
+  .growth-pill{background:#eaffea;color:#2a7a4a;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px}
+
+  .city-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin:1.5rem 0}
+  .city-tile{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.9rem .8rem;text-align:center}
+  .city-rank{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--accent);line-height:1}
+  .city-name{font-size:12px;font-weight:500;margin:.25rem 0}
+  .city-stat{font-size:11px;color:var(--muted)}
+
+  .skill-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+  .skill-tag{background:var(--faint);border:1px solid var(--border);border-radius:6px;padding:4px 12px;font-size:12.5px;color:#333}
+
+  .closer{background:#111;border-radius:14px;padding:2rem 2.5rem;margin-top:3rem;color:#eee}
+  .closer h2{font-family:var(--serif);color:#fff;font-size:1.5rem;margin-bottom:.8rem}
+  .closer p{color:#bbb;font-size:.98rem;line-height:1.75;margin-bottom:0}
+
+  .divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+</style>
+
+<article class="blog">
+  <p class="kicker"><i class="ti ti-brain" aria-hidden="true"></i> &nbsp;India's AI Economy · May 2026</p>
+  <h1>The Industries Betting Big on AI Talent in India</h1>
+  <p class="subtitle">From Bengaluru boardrooms to Indore engineering labs, India's AI hiring revolution is rewriting the rules — and the winners aren't who you'd always expect.</p>
+
+  <div class="meta">
+    <span><i class="ti ti-calendar" aria-hidden="true"></i> May 26, 2026</span>
+    <span><i class="ti ti-clock" aria-hidden="true"></i> 8 min read</span>
+    <span><i class="ti ti-chart-bar" aria-hidden="true"></i> Based on LinkedIn, foundit &amp; NASSCOM data</span>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <div class="stat-num">2.9L+</div>
+      <div class="stat-label">AI roles posted in 2025</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">32%</div>
+      <div class="stat-label">projected YoY growth in 2026</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">59.5%</div>
+      <div class="stat-num" style="font-size:1rem;color:var(--accent2)">YoY rise</div>
+      <div class="stat-label">in AI engineer hiring (LinkedIn)</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">~1M</div>
+      <div class="stat-label">AI professionals needed by 2026</div>
+    </div>
+  </div>
+
+  <p>There's a metaphor hiding inside India's AI hiring boom. Think of India's job market as a monsoon-fed river. For decades, it flowed steadily through one channel — IT services. Predictable, deep, reliable. Today, that river has broken its banks. It's flooding fields, factories, hospitals, banks, and even warehouses. AI is the rain that made it overflow.</p>
+
+  <p>The numbers are staggering, but numbers alone don't tell the story. The real story is <em>which industries</em> are reaching hungriest for AI talent — and why. Let's walk through them.</p>
+
+  <hr class="divider">
+  <h2>The industry breakdown: who's hiring what</h2>
+  <p>Here's how the share of AI job postings in 2025 fell across India's major sectors, according to the foundit Insights Tracker report:</p>
+
+  <div class="bar-chart">
+    <div class="bar-row">
+      <span class="bar-label">IT &amp; Software Services</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:74%;background:#c85a2a"></div></div>
+      <span class="bar-pct">37%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">BFSI</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:31.6%;background:#1d6a8e"></div></div>
+      <span class="bar-pct">15.8%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Manufacturing</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:12%;background:#2a7a4a"></div></div>
+      <span class="bar-pct">6%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Healthcare &amp; Pharma</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:9%;background:#8a3a8a"></div></div>
+      <span class="bar-pct">~5%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Retail &amp; E-commerce</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:8%;background:#b87a20"></div></div>
+      <span class="bar-pct">~4%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Logistics &amp; Supply Chain</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:7%;background:#5a7a3a"></div></div>
+      <span class="bar-pct">~3.5%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">BPO / ITeS</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:6%;background:#8a4a2a"></div></div>
+      <span class="bar-pct">~3%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Telecom</span>
+      <div class="bar-track"><div class="bar-fill" style="--w:5%;background:#555"></div></div>
+      <span class="bar-pct">~2.5%</span>
+    </div>
+  </div>
+
+  <p style="font-size:12.5px;color:var(--muted)">Source: foundit Insights Tracker 2025 / Naukri JobSpeak Jan 2026. Smaller sectors show estimated ranges.</p>
+
+  <h2>Year-on-year growth: the surprise leaders</h2>
+  <p>Share of total jobs tells one story. Growth rate tells another — and here's where the plot twists beautifully:</p>
+
+  <div style="margin:1.5rem 0">
+    <div class="growth-row"><span class="growth-label">BFSI</span><span class="growth-pill">+41% YoY</span></div>
+    <div class="growth-row"><span class="growth-label">Healthcare &amp; Pharmaceuticals</span><span class="growth-pill">+38% YoY</span></div>
+    <div class="growth-row"><span class="growth-label">Retail &amp; E-commerce</span><span class="growth-pill">+31% YoY</span></div>
+    <div class="growth-row"><span class="growth-label">Logistics &amp; Supply Chain</span><span class="growth-pill">+30% YoY</span></div>
+    <div class="growth-row"><span class="growth-label">Telecom</span><span class="growth-pill">+29% YoY</span></div>
+    <div class="growth-row"><span class="growth-label">AI/ML roles overall (Jan 2026)</span><span class="growth-pill">+34% YoY</span></div>
+  </div>
+
+  <div class="pullquote">"BFSI is growing faster in AI hiring than IT itself — a seismic shift that would have seemed implausible just three years ago."</div>
+
+  <hr class="divider">
+  <h2>The eight industries, up close</h2>
+
+  <div class="industry-grid">
+    <div class="industry-card card-it">
+      <div class="card-icon">💻</div>
+      <div class="card-title">IT &amp; Software Services</div>
+      <div class="card-share">37% of all AI roles · Largest employer</div>
+      <span class="badge badge-hot">Dominant</span>
+      <p class="card-desc">TCS, Infosys, Wipro, plus hyperscalers like Google, Microsoft &amp; Amazon. AI is the new delivery layer — every client engagement now demands ML, GenAI, and LLM integration skills.</p>
+    </div>
+
+    <div class="industry-card card-bfsi">
+      <div class="card-icon">🏦</div>
+      <div class="card-title">Banking, Financial Services &amp; Insurance</div>
+      <div class="card-share">15.8% share · +41% YoY growth</div>
+      <span class="badge badge-surge">Fastest Growing</span>
+      <p class="card-desc">Fraud detection, algorithmic risk models, AI-powered chatbots for 24/7 customer service, and robo-advisory. Fintech is the engine; incumbents are scrambling to keep up.</p>
+    </div>
+
+    <div class="industry-card card-gcc">
+      <div class="card-icon">🌐</div>
+      <div class="card-title">Global Capability Centres (GCCs)</div>
+      <div class="card-share">India hosts 1,800+ GCCs · 2M+ professionals</div>
+      <span class="badge badge-surge">High Priority</span>
+      <p class="card-desc">Nearly half the world's GCCs are in India. By 2026, 75% plan to embed GenAI into daily operations. Demand for prompt engineers, AI architects, and AI governance roles is surging.</p>
+    </div>
+
+    <div class="industry-card card-mfg">
+      <div class="card-icon">🏭</div>
+      <div class="card-title">Manufacturing</div>
+      <div class="card-share">6% share · AI talent expanded 4× in 2025</div>
+      <span class="badge badge-fast">Rising Fast</span>
+      <p class="card-desc">Smart robots, predictive maintenance, AI-powered quality control. By 2025, 90% of large manufacturers had adopted some form of AI. "AI Prompting" is now a baseline factory floor skill.</p>
+    </div>
+
+    <div class="industry-card card-health">
+      <div class="card-icon">🏥</div>
+      <div class="card-title">Healthcare &amp; Pharmaceuticals</div>
+      <div class="card-share">~5% share · +38% YoY growth</div>
+      <span class="badge badge-hot">Hot Vertical</span>
+      <p class="card-desc">AI-assisted diagnostics, drug discovery, genomics, and predictive patient analytics. Companies like CureMetrix are building India R&amp;D hubs around computer vision for cancer detection.</p>
+    </div>
+
+    <div class="industry-card card-retail">
+      <div class="card-icon">🛒</div>
+      <div class="card-title">Retail &amp; E-commerce</div>
+      <div class="card-share">~4% share · +31% YoY growth</div>
+      <span class="badge badge-fast">Growing</span>
+      <p class="card-desc">Recommendation engines, demand forecasting, dynamic pricing, and hyper-personalisation. Quick commerce and platform retail are doubling down on AI for last-mile efficiency.</p>
+    </div>
+
+    <div class="industry-card card-logistics">
+      <div class="card-icon">🚚</div>
+      <div class="card-title">Logistics &amp; Supply Chain</div>
+      <div class="card-share">~3.5% share · +30% YoY growth</div>
+      <span class="badge badge-fast">Accelerating</span>
+      <p class="card-desc">Route optimisation, intelligent warehousing, and supply chain prediction. India's booming e-commerce logistics backbone is a hungry employer of ML and operations-AI talent.</p>
+    </div>
+
+    <div class="industry-card card-bpo">
+      <div class="card-icon">📞</div>
+      <div class="card-title">BPO / ITeS &amp; Telecom</div>
+      <div class="card-share">+21% BPO growth (Jan 2026)</div>
+      <span class="badge badge-surge">Resurging</span>
+      <p class="card-desc">The old BPO model is dead; the AI-augmented BPO is thriving. Conversational AI, NLP-driven automation, and intelligent document processing have triggered a new wave of hiring.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h2>The geography: where the talent lives</h2>
+  <p>India's AI talent map is rapidly expanding beyond the three-city corridor of Bengaluru–Hyderabad–Mumbai. Tier 2 cities are claiming their seat at the table:</p>
+
+  <div class="city-grid">
+    <div class="city-tile">
+      <div class="city-rank">🥇</div>
+      <div class="city-name">Bengaluru</div>
+      <div class="city-stat">26% of all AI roles · +32% YoY</div>
+    </div>
+    <div class="city-tile">
+      <div class="city-rank">🥈</div>
+      <div class="city-name">Hyderabad</div>
+      <div class="city-stat">Fastest Tier-1 growth at +35%</div>
+    </div>
+    <div class="city-tile">
+      <div class="city-rank">🥉</div>
+      <div class="city-name">Mumbai</div>
+      <div class="city-stat">BFSI &amp; fintech hub</div>
+    </div>
+    <div class="city-tile">
+      <div class="city-rank">🌟</div>
+      <div class="city-name">Jaipur</div>
+      <div class="city-stat">+40% YoY · Tier-2 leader</div>
+    </div>
+    <div class="city-tile">
+      <div class="city-rank">🌟</div>
+      <div class="city-name">Indore</div>
+      <div class="city-stat">+38% YoY growth</div>
+    </div>
+    <div class="city-tile">
+      <div class="city-rank">🌟</div>
+      <div class="city-name">Mysuru</div>
+      <div class="city-stat">+36% YoY growth</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h2>Skills that open doors</h2>
+  <p>Across all these industries, a consistent set of capabilities separates the hired from the hopeful. These are the skills employers are paying a premium for right now:</p>
+
+  <div class="skill-tags">
+    <span class="skill-tag">Large Language Models (LLMs)</span>
+    <span class="skill-tag">AI Agents &amp; Agentic AI</span>
+    <span class="skill-tag">Generative AI</span>
+    <span class="skill-tag">MLOps &amp; Deployment</span>
+    <span class="skill-tag">Azure AI Studio</span>
+    <span class="skill-tag">Automated Feature Engineering</span>
+    <span class="skill-tag">NLP Engineering</span>
+    <span class="skill-tag">Computer Vision</span>
+    <span class="skill-tag">AI Governance &amp; Safety</span>
+    <span class="skill-tag">Prompt Engineering</span>
+    <span class="skill-tag">AI Productivity Tools</span>
+    <span class="skill-tag">Cloud + AI Integration</span>
+  </div>
+
+  <p>The demand is shifting decisively from knowing AI theory to deploying AI in production. LinkedIn India's Head of Engineering put it plainly: the era of "experimentation" is over. Employers want engineers who can move ideas to execution.</p>
+
+  <hr class="divider">
+  <h2>The talent gap: India's productive tension</h2>
+
+  <p>Here's the uncomfortable truth beneath the optimism: India has 1.3 million AI learners — more than any country on earth. And yet it ranks 89th out of 109 nations in measured AI proficiency. Demand for one million AI professionals by 2026 is projected, with only around half that number currently qualified to fill those seats. That's a 50–55% talent gap.</p>
+
+  <div class="pullquote">"India is the world's largest AI classroom — and simultaneously, one of its most urgent hiring markets. The race between skilling and demand is the defining tension of this decade."</div>
+
+  <p>The government isn't standing still. The IndiaAI Mission has invested ₹10,300 crore in AI infrastructure. The FutureSkills Prime programme has already benefited over 1.58 million candidates. And 174 Industrial Training Institutes across 27 states are being upgraded to include AI curricula — a bet that the next wave of AI talent won't just come from IITs.</p>
+
+  <hr class="divider">
+  <h2>What it means if you're building a career</h2>
+
+  <p>The honest career advice that emerges from all this data is deceptively simple: <em>go where growth outpaces supply</em>. BFSI is growing at 41% but most engineers still think of it as "boring banking." Healthcare AI is red-hot but massively under-staffed with ML talent. Manufacturing is quadrupling its AI headcount with almost no one noticing.</p>
+
+  <p>Mid-level salaries for AI roles already range from ₹15–30 LPA, with senior specialists at ₹50 LPA and above. AI Architects command ₹28 LPA as a floor. The profession has, in a remarkably short span, become one of the most financially rewarding in India's knowledge economy.</p>
+
+  <p>The city story also matters. Jaipur, Indore, and Mysuru are growing at rates that rival — or exceed — Bengaluru. For those willing to plant a flag in an emerging hub, the competition is lower and the upside considerable.</p>
+
+  <div class="closer">
+    <h2>The river has broken its banks</h2>
+    <p>India's AI hiring story is no longer just a technology story. It's a manufacturing story, a banking story, a healthcare story, a logistics story. The industries that once defined themselves by very different rhythms are all converging on the same urgent need: people who can think with machines and deploy those thoughts at scale. The window for becoming one of those people — irreplaceable, well-paid, and riding the most significant economic wave of a generation — has never been wider. But windows, as anyone in Bengaluru real estate will tell you, don't stay open forever.</p>
+  </div>
+</article>

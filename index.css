@@ -713,6 +713,67 @@ a { color: inherit; text-decoration: none; }
     margin-block: 2rem;
 }
 
+.article-body .article-callout {
+    border: 1px solid var(--line);
+    background: var(--bg-alt);
+    padding: 1.35rem 1.5rem;
+    margin-block: 2rem;
+}
+.article-body .article-callout__label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--step--2);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 0.65rem;
+}
+.article-body .article-callout p:last-child { margin-bottom: 0; }
+
+.article-body .article-stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    margin-block: 2rem;
+    background: var(--line);
+    border: 1px solid var(--line);
+}
+.article-body .article-stat-cell {
+    background: var(--surface);
+    padding: 1.35rem 1.25rem;
+}
+.article-body .article-stat-number {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+}
+.article-body .article-stat-label {
+    font-size: var(--step--1);
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.article-body .article-note {
+    border-left: 2px solid color-mix(in srgb, var(--c-tech) 55%, var(--ink));
+    background: color-mix(in srgb, var(--c-tech) 12%, var(--bg-alt));
+    padding: 1.1rem 1.25rem;
+    margin-block: 2rem;
+}
+.article-body .article-note__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--step-1);
+    margin-bottom: 0.45rem;
+    color: var(--ink);
+}
+.article-body .article-note p {
+    font-size: var(--step--1);
+    margin: 0;
+}
+
 .article-body .article-table-wrap {
     overflow-x: auto;
     margin-block: 1.75rem;
@@ -750,6 +811,180 @@ a { color: inherit; text-decoration: none; }
 .article-body .article-table-wrap tbody tr:last-child th,
 .article-body .article-table-wrap tbody tr:last-child td {
     border-bottom: none;
+}
+
+.article-body .article-bar-chart {
+    margin-block: 1.75rem;
+}
+.article-body .article-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.7rem;
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+}
+.article-body .article-bar-label {
+    width: min(180px, 38%);
+    flex-shrink: 0;
+    font-weight: 500;
+    color: var(--ink);
+}
+.article-body .article-bar-track {
+    flex: 1;
+    background: var(--bg-alt);
+    border-radius: 99px;
+    height: 10px;
+    overflow: hidden;
+}
+.article-body .article-bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: 99px;
+    background: color-mix(in srgb, var(--c-tech) 70%, var(--ink));
+}
+.article-body .article-bar-pct {
+    width: 2.5rem;
+    text-align: right;
+    color: var(--muted);
+    font-size: var(--step--2);
+}
+
+.article-body .article-growth-list {
+    margin-block: 1.5rem;
+    display: grid;
+    gap: 0.55rem;
+}
+.article-body .article-growth-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--line);
+}
+.article-body .article-growth-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.article-body .article-growth-pill {
+    flex-shrink: 0;
+    font-size: var(--step--2);
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    background: color-mix(in srgb, var(--c-tech) 14%, var(--bg-alt));
+    color: var(--ink);
+}
+
+.article-body .article-industry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-block: 1.75rem;
+}
+@media (max-width: 640px) {
+    .article-body .article-industry-grid { grid-template-columns: 1fr; }
+}
+.article-body .article-industry-card {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 1.2rem 1.15rem;
+    border-top: 3px solid var(--line-strong);
+}
+.article-body .article-industry-card h3 {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-style: normal;
+    margin: 0 0 0.35rem;
+}
+.article-body .article-industry-card .article-industry-share {
+    font-size: var(--step--2);
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+.article-body .article-industry-badge {
+    display: inline-block;
+    font-size: var(--step--2);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    margin-bottom: 0.55rem;
+    border: 1px solid var(--line);
+    background: var(--bg-alt);
+    color: var(--muted);
+}
+.article-body .article-industry-card p:last-child {
+    font-size: var(--step--1);
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.55;
+}
+
+.article-body .article-city-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.75rem;
+    margin-block: 1.5rem;
+}
+.article-body .article-city-tile {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.9rem 0.75rem;
+    text-align: center;
+}
+.article-body .article-city-rank {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+.article-body .article-city-name {
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+.article-body .article-city-stat {
+    font-size: var(--step--2);
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.article-body .article-skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block: 1rem;
+}
+.article-body .article-skill-tag {
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--line);
+    background: var(--bg-alt);
+    color: var(--ink);
+}
+
+.article-body .article-closer {
+    border: 1px solid var(--line);
+    background: var(--ink);
+    color: color-mix(in srgb, var(--surface) 88%, transparent);
+    padding: 1.75rem 1.85rem;
+    margin-block: 2.5rem 0;
+}
+.article-body .article-closer h2 {
+    color: var(--surface);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+.article-body .article-closer p {
+    color: color-mix(in srgb, var(--surface) 72%, transparent);
+    margin: 0;
+    font-size: var(--step-0);
 }
 
 .article-body a {
