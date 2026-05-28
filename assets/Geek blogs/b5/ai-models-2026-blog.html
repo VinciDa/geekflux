@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Arms Race: Every Model That Matters in 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1614;
+    --ink-muted: #5c534e;
+    --ink-faint: #a09890;
+    --paper: #faf8f4;
+    --paper-warm: #f2ede4;
+    --paper-card: #ffffff;
+    --accent-red: #c0392b;
+    --accent-gold: #b08d57;
+    --accent-teal: #2a7f6f;
+    --accent-blue: #1e5fa3;
+    --accent-violet: #5c3d8f;
+    --border: rgba(26,22,20,0.12);
+    --border-light: rgba(26,22,20,0.06);
+  }
+
+  html { font-size: 18px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 0.45rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: var(--ink);
+    margin: 3rem auto 0;
+  }
+
+  .hero-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-red);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-deck {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    max-width: 580px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* ── META ROW ── */
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 1.5rem 2rem;
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .meta-sep { opacity: 0.3; }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .article-body {
+    padding: 3.5rem 0 5rem;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: var(--ink);
+    font-weight: 300;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 3.5rem 0 1.2rem;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink);
+    margin: 2.5rem 0 0.8rem;
+  }
+
+  strong { font-weight: 600; color: var(--ink); }
+
+  /* ── PULL QUOTE ── */
+  .pullquote {
+    border-left: 3px solid var(--accent-gold);
+    margin: 2.5rem 0 2.5rem -1.5rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* ── DROPCAP ── */
+  .dropcap::first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    float: left;
+    font-size: 4.2rem;
+    line-height: 0.78;
+    margin: 0.12em 0.12em 0 0;
+    font-weight: 700;
+    color: var(--accent-red);
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3.5rem 0;
+    color: var(--ink-faint);
+  }
+  .section-rule::before, .section-rule::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border);
+  }
+  .section-rule span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── MODEL CARDS ── */
+  .model-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .model-card {
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--paper-card);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .model-card-header {
+    padding: 1.2rem 1.4rem 1rem;
+    border-bottom: 0.5px solid var(--border-light);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .model-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .model-maker {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .model-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-leader { background: #fdf3e3; color: #8a5e1a; border: 0.5px solid #d4a355; }
+  .badge-coder  { background: #e8f4f1; color: #1a6b56; border: 0.5px solid #3a9b80; }
+  .badge-context{ background: #e8f0f8; color: #1a4d87; border: 0.5px solid #3a6eb5; }
+  .badge-open   { background: #f0ebe8; color: #6b3a1a; border: 0.5px solid #a05a30; }
+  .badge-value  { background: #f3eef8; color: #5c2a87; border: 0.5px solid #8c50b8; }
+
+  .model-body {
+    padding: 1rem 1.4rem 1.2rem;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .model-stats {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.8rem 1.4rem;
+    background: var(--paper-warm);
+    border-top: 0.5px solid var(--border-light);
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+  }
+
+  .stat-item strong {
+    display: block;
+    font-size: 0.85rem;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0;
+    margin-bottom: 0.1rem;
+  }
+
+  /* ── BENCHMARK TABLE ── */
+  .bench-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0 2.5rem;
+    font-size: 0.82rem;
+  }
+
+  .bench-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bench-table td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 0.5px solid var(--border-light);
+    color: var(--ink);
+    vertical-align: middle;
+  }
+
+  .bench-table tr:last-child td { border-bottom: none; }
+
+  .bar-cell { min-width: 120px; }
+
+  .bar-track {
+    height: 6px;
+    background: var(--paper-warm);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--ink);
+    opacity: 0.7;
+  }
+
+  .bar-gpt   { background: #10a37f; opacity: 1; }
+  .bar-claude{ background: #c0392b; opacity: 1; }
+  .bar-gemini{ background: #1e5fa3; opacity: 1; }
+  .bar-grok  { background: #5c3d8f; opacity: 1; }
+
+  /* ── TRENDS BOX ── */
+  .trends-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2rem 2rem;
+    margin: 2.5rem 0;
+    border-radius: 4px;
+  }
+
+  .trends-box h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .trend-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+    align-items: flex-start;
+  }
+
+  .trend-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1;
+    min-width: 2rem;
+    opacity: 0.85;
+  }
+
+  .trend-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(250,248,244,0.85);
+    font-weight: 300;
+    padding-top: 0.15rem;
+  }
+
+  .trend-text strong { color: var(--paper); }
+
+  /* ── OPEN SOURCE STRIP ── */
+  .open-strip {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-teal);
+    padding: 1.2rem 1.4rem;
+    margin: 2rem 0;
+    background: var(--paper-card);
+    border-radius: 2px;
+  }
+
+  .open-strip h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 0.7rem;
+  }
+
+  .open-strip p {
+    font-size: 0.88rem;
+    margin-bottom: 0;
+    color: var(--ink-muted);
+  }
+
+  /* ── CODA ── */
+  .coda {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .coda-ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .coda p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink-muted);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(250,248,244,0.45);
+    text-align: center;
+    padding: 1.2rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    .container { padding: 0 1.5rem; }
+    .pullquote { margin-left: 0; }
+    .model-stats { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">The Intelligence Report &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Special Edition</div>
+
+<header class="hero">
+  <span class="hero-kicker">Annual Survey · Frontier AI</span>
+  <h1>The AI Arms Race:<br>Every Model That Matters&nbsp;in&nbsp;2026</h1>
+  <p class="hero-deck">In a single year, the gap between "one model to rule them all" and "pick the right tool" collapsed completely. Here is what that means for everyone.</p>
+</header>
+
+<div class="meta-row">
+  <span>May 28, 2026</span>
+  <span class="meta-sep">—</span>
+  <span>18-minute read</span>
+  <span class="meta-sep">—</span>
+  <span>Frontier AI &amp; Language Models</span>
+</div>
+
+<main class="container">
+<article class="article-body">
+
+<p class="dropcap">There is a peculiar game that plays out every few months in the world of artificial intelligence. A new model lands. Benchmarks ignite Twitter. Developers scramble to run evaluations. Breathless headlines declare that AI has changed forever — again. And then, just as the dust settles, another model arrives. The cycle repeats, dizzying and relentless, as if the industry has decided that ordinary calendars are far too slow for the pace it intends to keep.</p>
+
+<p>But 2026 has been different. Not louder — if anything the noise has given way to something more interesting: genuine divergence. For the first time, the frontrunners from OpenAI, Anthropic, Google, xAI and the open-source community are not chasing the same prize. They have each decided, deliberately, what kind of intelligence they want to build.</p>
+
+<p>This is that story.</p>
+
+<div class="section-rule"><span>The Contenders</span></div>
+
+<h2>The Flagship Models of 2026</h2>
+
+<p>To understand where we are, it helps to see the landscape laid out plainly. The following are the models that have shaped 2026 — each remarkable in its own right, each chasing a different vision of what "the best AI" should mean.</p>
+
+<div class="model-grid">
+
+  <div class="model-card">
+    <div class="model-card-header">
+      <div>
+        <span class="model-name">GPT-5.5</span>
+        <span class="model-maker">OpenAI · Released April 2026</span>
+      </div>
+      <span class="model-badge badge-leader">Agentic Leader</span>
+    </div>
+    <div class="model-body">
+      GPT-5.5 is not a better chatbot — it is a model designed to do work autonomously. OpenAI's April 2026 release brought improved instruction persistence across long tasks, superior tool orchestration in multi-step agentic pipelines, and enhanced native computer use. On the Terminal-Bench autonomous agent evaluation it scored 82.7%, the first time OpenAI has led Anthropic on agentic execution since GPT-4. Its 256K context window and GPT-4-level hallucination rates on factual tasks mean it shines brightest when its tool-calling keeps it grounded. For teams building workflows that run for hours without human intervention, this is the model to reach for.
+    </div>
+    <div class="model-stats">
+      <div class="stat-item"><strong>Terminal-Bench</strong>82.7%</div>
+      <div class="stat-item"><strong>Context</strong>256K tokens</div>
+      <div class="stat-item"><strong>Best for</strong>Autonomous agents</div>
+    </div>
+  </div>
+
+  <div class="model-card">
+    <div class="model-card-header">
+      <div>
+        <span class="model-name">Claude Opus 4.7</span>
+        <span class="model-maker">Anthropic · Q2 2026</span>
+      </div>
+      <span class="model-badge badge-coder">Coding King</span>
+    </div>
+    <div class="model-body">
+      Anthropic's Opus 4.7 holds a striking lead on the SWE-bench Verified benchmark — the industry's toughest real-world coding evaluation — scoring 87.6%. It is the strongest coding model currently available and Anthropic's bet that depth and reliability matter more than raw speed. Claude's architecture is explicitly agentic, capable of autonomous work for extended periods, and its factual accuracy dramatically outperforms GPT-5.5 on long-form writing tasks (36% vs 86% hallucination rate in one comparative test). For developers, client-facing documentation, or research summaries where accuracy is the product, Opus 4.7 remains many practitioners' daily driver even after GPT-5.5's launch.
+    </div>
+    <div class="model-stats">
+      <div class="stat-item"><strong>SWE-bench</strong>87.6%</div>
+      <div class="stat-item"><strong>Best for</strong>Coding, analysis, writing</div>
+      <div class="stat-item"><strong>Strength</strong>Factual reliability</div>
+    </div>
+  </div>
+
+  <div class="model-card">
+    <div class="model-card-header">
+      <div>
+        <span class="model-name">Gemini 3.1 Pro</span>
+        <span class="model-maker">Google DeepMind · Early 2026</span>
+      </div>
+      <span class="model-badge badge-context">Context Champion</span>
+    </div>
+    <div class="model-body">
+      Gemini 3.1 Pro's headline achievement is scale: a one-million-token context window — five times Claude's and eight times GPT-5's — that opens up workloads no other frontier model can touch. Process an entire codebase. Analyse hundreds of documents simultaneously. Watch and reason over an hour of silent video. It ships natively inside Google Workspace and is the cheapest frontier model per output token at $12 per million, compared to roughly $25-30 for Opus 4.7. On pure reasoning benchmarks it ranks among the top three, and for high-volume batch jobs or any task requiring that extraordinary context, it is the clear cost winner. Multimodality — native audio, video, and image understanding — remains its structural advantage over rivals that bolt these capabilities on.
+    </div>
+    <div class="model-stats">
+      <div class="stat-item"><strong>Context</strong>1M tokens</div>
+      <div class="stat-item"><strong>Price</strong>$12/M output tokens</div>
+      <div class="stat-item"><strong>Best for</strong>Long-context, multimodal</div>
+    </div>
+  </div>
+
+  <div class="model-card">
+    <div class="model-card-header">
+      <div>
+        <span class="model-name">Grok 4.20 / 4.3</span>
+        <span class="model-maker">xAI · Q1–Q2 2026</span>
+      </div>
+      <span class="model-badge badge-value">IQ Leader</span>
+    </div>
+    <div class="model-body">
+      xAI's Grok line made a striking impression on intelligence benchmarks. In the April 2026 Mensa Norway IQ test rankings from TrackingAI — a visual pattern-recognition evaluation across 35 puzzles — Grok-4.20 Expert Mode tied for the top spot with GPT-5.4 Pro, each scoring 145. It added document generation and video input capabilities in the 4.3 beta, though its most powerful features remain locked behind the $300/month SuperGrok Heavy tier. Its close integration with the X platform gives it a real-time information edge — though users must explicitly enable web or X search tools, as xAI's model knowledge cutoff is fixed at November 2024.
+    </div>
+    <div class="model-stats">
+      <div class="stat-item"><strong>IQ Benchmark</strong>145 (tied #1)</div>
+      <div class="stat-item"><strong>Real-time</strong>Via X integration</div>
+      <div class="stat-item"><strong>Best for</strong>Reasoning, current events</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="pullquote">"March 2026 marks the first time in AI history where three genuinely world-class models are available simultaneously, each from a different lab, each with a credible claim to being the best at something important."</div>
+
+<div class="section-rule"><span>Benchmark Snapshot</span></div>
+
+<h2>Who Wins What</h2>
+
+<p>Raw benchmarks are imperfect lenses — optimised for, gamed, and context-dependent. But they do tell a story. The table below gives a quick orientation to the current pecking order across four dimensions that matter most in production.</p>
+
+<table class="bench-table">
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Coding (SWE-bench)</th>
+      <th>Reasoning</th>
+      <th>Agentic Tasks</th>
+      <th>Context Window</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Claude Opus 4.7</strong></td>
+      <td>
+        87.6%
+        <div class="bar-track"><div class="bar-fill bar-claude" style="width:88%"></div></div>
+      </td>
+      <td>Top-3</td>
+      <td>Strong</td>
+      <td>200K</td>
+    </tr>
+    <tr>
+      <td><strong>GPT-5.5</strong></td>
+      <td>
+        ~80%+
+        <div class="bar-track"><div class="bar-fill bar-gpt" style="width:82%"></div></div>
+      </td>
+      <td>Top-3</td>
+      <td><em>Leader</em></td>
+      <td>256K</td>
+    </tr>
+    <tr>
+      <td><strong>Gemini 3.1 Pro</strong></td>
+      <td>
+        Competitive
+        <div class="bar-track"><div class="bar-fill bar-gemini" style="width:74%"></div></div>
+      </td>
+      <td>Top-3</td>
+      <td>Strong</td>
+      <td><em>1M</em></td>
+    </tr>
+    <tr>
+      <td><strong>Grok 4.20</strong></td>
+      <td>
+        Competitive
+        <div class="bar-track"><div class="bar-fill bar-grok" style="width:70%"></div></div>
+      </td>
+      <td><em>IQ #1 tied</em></td>
+      <td>Moderate</td>
+      <td>128K</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The headline finding from practitioners who tested all three flagships head-to-head in April 2026: on the Artificial Analysis intelligence index, GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro sit within three index points of each other. The frontier is genuinely crowded at the top. Choosing a model now requires real analysis rather than brand loyalty.</p>
+
+<div class="section-rule"><span>The Quiet Revolution</span></div>
+
+<h2>The Open-Source Insurgency Nobody Predicted</h2>
+
+<p>Perhaps the most consequential story of 2026 is not at the proprietary frontier at all. It is the collapse of the gap between open-source and closed models — a gap that, just two years ago, seemed permanent.</p>
+
+<div class="open-strip">
+  <h4>By the numbers</h4>
+  <p>89% of enterprises now deploy at least one open-source AI model in production, reporting on average a 25% higher return on investment compared to organisations using closed-model APIs exclusively.</p>
+</div>
+
+<h3>DeepSeek V4 — The Efficiency Miracle</h3>
+
+<p>Released in March 2026, DeepSeek V4 is the model that finally made enterprise architects take open source seriously for reasoning-heavy workloads. Built on a Mixture-of-Experts architecture with 236 billion total parameters but only 21 billion active per inference, it achieves GPT-4o-class performance at a fraction of the compute cost. In April 2026 evaluations, it matched or exceeded GPT-4o on seven of twelve standard benchmarks. The real story is economics: running DeepSeek V4 for the same workload costs three to five times less than the GPT-4o API at moderate volume. At high volume, the gap widens further.</p>
+
+<h3>Meta's Llama 4 — Open Multimodality at Scale</h3>
+
+<p>Meta released Llama 4 in two tiers. Maverick — the practical workhorse with 17 billion active parameters (400 billion total in MoE configuration) — sports the widest context window in the open-source world at one million tokens, outstanding multilingual performance, and MMLU scores (85.5%) that lead among all open models. Behemoth, the research-tier variant at 288 billion active parameters, targets maximum-capability deployments. The one catch: Llama's licence is not fully open-source in the Apache sense. Services with more than 700 million monthly active users need a separate commercial agreement with Meta.</p>
+
+<h3>Google's Gemma 4 — The Local Runner</h3>
+
+<p>Google's Gemma 4 takes a different angle entirely. At 26 billion parameters in its MoE configuration, it runs locally with just 18 GB of RAM — installable in minutes via Ollama. It carries an Apache 2.0 licence, the most permissive available, with no usage caps or commercial restrictions. For organisations that cannot send data to external APIs, Gemma 4 has become the default choice: your data never leaves your machine, and you keep 140-plus languages and competitive benchmark scores.</p>
+
+<div class="trends-box">
+  <h4>Four Structural Shifts Defining AI in 2026</h4>
+
+  <div class="trend-item">
+    <span class="trend-num">01</span>
+    <span class="trend-text"><strong>Agentic AI is now table stakes.</strong> Every major lab ships models that can autonomously plan and execute multi-step tasks. The question is no longer whether a model can use tools — it is how reliably it does so across hours-long runs without human correction.</span>
+  </div>
+
+  <div class="trend-item">
+    <span class="trend-num">02</span>
+    <span class="trend-text"><strong>Cost compression is accelerating.</strong> Google's Gemini 3.1 Flash-Lite at $0.25 per million tokens and Zhipu AI's GLM-4.7 at $0.11 per million are forcing the entire market to re-examine pricing. GPT-4-level intelligence for dollars, not hundreds, is now reality.</span>
+  </div>
+
+  <div class="trend-item">
+    <span class="trend-num">03</span>
+    <span class="trend-text"><strong>Open-source quality is converging with proprietary quality.</strong> Mistral 3, Llama 4, and DeepSeek V4 are now competitive for a wide range of business tasks. The premium for closed models is narrowing to specific, high-value capabilities — not general performance.</span>
+  </div>
+
+  <div class="trend-item">
+    <span class="trend-num">04</span>
+    <span class="trend-text"><strong>Computer use is becoming standard.</strong> AI agents that operate actual software interfaces — filling forms, navigating browsers, reading screens — rather than just generating text are shipping across the frontier. Development timelines that once took weeks are now measured in hours.</span>
+  </div>
+</div>
+
+<div class="section-rule"><span>The Deeper Story</span></div>
+
+<h2>What It All Means</h2>
+
+<p>It is tempting to reduce all of this to a horse race — to crown a winner, issue a definitive ranking, and move on. But the most interesting thing about 2026's AI landscape is precisely that such a ranking is no longer possible, or particularly useful.</p>
+
+<p>Claude Opus 4.7 is the best model for code review and long-form writing that must be factually precise. GPT-5.5 is the best model for autonomous multi-hour agent workflows. Gemini 3.1 Pro is the best model when you need to process an entire dataset that no other model's context window can hold. DeepSeek V4 is the best model when cost discipline and data sovereignty are non-negotiable constraints. Llama 4 is the best model when you need open weights for fine-tuning or self-hosting at scale.</p>
+
+<div class="pullquote">"The headline of 2026 is not that one model has won. It is that models are beginning to diverge, and picking the right one for the right task matters more than loyalty to a single provider."</div>
+
+<p>This divergence should be liberating. For years, the implicit assumption was that AI progress meant one model getting universally smarter until it could do everything better than anything else. What we have instead is a richer ecosystem — more akin to the history of software tools than the history of hardware chipsets. A database and a web server and a message queue are all software, all essential, and all irreplaceable by each other. The same logic is beginning to apply to AI models.</p>
+
+<p>The practical implication for builders is clear and somewhat uncomfortable: hard-coding a specific model name into your product's logic is technical debt that compounds every month. The pace of releases — multiple major models per month across major labs — makes model-agnostic architectures not a nice-to-have but a survival skill. The teams that win in this environment are those that have learned to evaluate, switch, and layer models as quickly as the frontier moves.</p>
+
+<h2>What Comes Next</h2>
+
+<p>The months ahead look crowded. Anthropic has confirmed Claude Opus 4.7 updates and has Claude Mythos in limited internal testing. xAI's Grok 5 is anticipated in Q2 or Q3 2026. OpenAI continues to iterate on the GPT-5.x family. Google's Gemma 4 community adoption is growing rapidly, with over 500 million total downloads across the Gemma lineage. And from China, Zhipu AI's GLM-5.1 — trained without NVIDIA hardware, circumventing export controls — is demonstrating that the geography of AI capability is broadening in ways that will have consequences well beyond engineering benchmarks.</p>
+
+<p>The IQ scores are rising. Last year's top Mensa Norway benchmark score among AI models was 135. In April 2026 it is 145 — and the gap between the frontrunner and the fourth-place model is just a few points. The pace of improvement on visual reasoning is remarkable. Whether that improvement translates into models that are genuinely more useful to the humans who depend on them is the question that will define the years ahead.</p>
+
+<p>Intelligence, as it turns out, is easier to build than wisdom. The industry has spent the last three years proving it can make AI smarter. The next chapter will test whether it can make AI better — not just at benchmarks, but at the actual, messy, ambiguous business of being useful.</p>
+
+<div class="coda">
+  <span class="coda-ornament">✦</span>
+  <p>The best model is the one that solves your problem — not the one that tops the leaderboard. In 2026, for the first time, that distinction genuinely matters.</p>
+</div>
+
+</article>
+</main>
+
+<footer>
+  © 2026 The Intelligence Report &nbsp;·&nbsp; Research-based analysis &nbsp;·&nbsp; Sources: Pluralsight, MindStudio, Attainment Labs, AI Magicx, Visual Capitalist, Google Blog
+</footer>
+
+</body>
+</html>
