@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Great AI Layoff Illusion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1612;
+    --ink-mid: #3d3530;
+    --ink-light: #6b5f57;
+    --ink-faint: #a89f98;
+    --cream: #faf7f2;
+    --cream-dark: #f0ebe2;
+    --rule: #d4cdc4;
+    --accent: #b5340a;
+    --accent-soft: #e8d5cc;
+    --gold: #8a6e2f;
+    --gold-soft: #f0e6c8;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    text-align: center;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .pub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+
+  .pub-tagline {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  /* KICKER / CATEGORY */
+  .kicker {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .kicker::before, .kicker::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.4;
+  }
+
+  /* HEADLINE */
+  h1.headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  h1.headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-family: 'Source Serif 4', serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink-mid);
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+
+  /* BYLINE */
+  .byline-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+    margin-bottom: 48px;
+  }
+
+  .byline-text {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .byline-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+  }
+
+  /* PULL QUOTE / LEDE */
+  .lede {
+    font-size: 21px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--ink-mid);
+    border-left: 3px solid var(--accent);
+    padding-left: 24px;
+    margin-bottom: 40px;
+  }
+
+  /* BODY COPY */
+  p {
+    margin-bottom: 1.5em;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  p:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em;
+    font-weight: 700;
+    float: left;
+    line-height: 0.75;
+    margin: 8px 8px 0 0;
+    color: var(--accent);
+  }
+
+  /* SUBHEADINGS */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 56px 0 20px;
+    line-height: 1.2;
+  }
+
+  h2.decorated {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  h2.decorated::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* STAT CALLOUTS */
+  .stat-band {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 36px 40px;
+    margin: 48px -40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+
+  .stat-item {}
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #f5c36b;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a89f98;
+    line-height: 1.4;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    margin: 48px 0;
+    padding: 32px 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .pull-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .pull-quote cite {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-style: normal;
+  }
+
+  /* HIGHLIGHTED BOX */
+  .highlight-box {
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 28px;
+    margin: 40px 0;
+  }
+
+  .highlight-box p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: var(--ink-mid);
+  }
+
+  .highlight-box .box-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  /* DANGER BOX */
+  .danger-box {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    margin: 40px 0;
+  }
+
+  .danger-box p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: var(--ink-mid);
+  }
+
+  .danger-box .box-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  /* SECTION RULE */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 56px 0;
+  }
+
+  .section-rule::before, .section-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .section-rule-ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--ink-faint);
+  }
+
+  /* CHART VISUAL */
+  .chart-container {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 32px;
+    margin: 40px 0;
+  }
+
+  .chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .chart-subtitle {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .bar-label {
+    font-size: 12px;
+    color: var(--ink-mid);
+    width: 180px;
+    flex-shrink: 0;
+    text-align: right;
+    line-height: 1.3;
+  }
+
+  .bar-track {
+    flex: 1;
+    background: var(--cream-dark);
+    height: 26px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    justify-content: flex-end;
+    transition: width 1s ease;
+  }
+
+  .bar-fill.red { background: var(--accent); }
+  .bar-fill.gold { background: var(--gold); }
+  .bar-fill.dark { background: var(--ink-mid); }
+
+  .bar-value {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+  }
+
+  /* FOOTER */
+  .article-footer {
+    margin-top: 72px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ink);
+  }
+
+  .footer-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    border: 1px solid var(--rule);
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+  .footer-note {
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    body { padding: 32px 20px 60px; }
+    .stat-band { grid-template-columns: 1fr; margin: 40px -20px; gap: 24px; padding: 28px 24px; }
+    .stat-num { font-size: 36px; }
+    h1.headline { font-size: 32px; }
+    .bar-label { width: 120px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="pub-name">The Long Read</div>
+  <div class="pub-tagline">Technology · Economics · Work · Society</div>
+</div>
+
+<div class="kicker">Analysis</div>
+
+<h1 class="headline">The Great AI Layoff <em>Illusion</em></h1>
+
+<p class="deck">Companies are firing tens of thousands of workers in the name of artificial intelligence. The data says it isn't working — and the real story is far more unsettling.</p>
+
+<div class="byline-block">
+  <span class="byline-text">By <strong>The Long Read Editorial</strong></span>
+  <span class="byline-dot"></span>
+  <span class="byline-text">May 29, 2026</span>
+  <span class="byline-dot"></span>
+  <span class="byline-text">12 min read</span>
+</div>
+
+<p class="lede">"Almost every company that does layoffs is blaming AI, whether or not it really is about AI." — Sam Altman, CEO of OpenAI, March 2026</p>
+
+<p>There is a story that has been playing out in corporate America — and increasingly across the globe — with the disciplined choreography of a theatrical production. The curtain rises on an earnings call. An executive steps to the microphone, voice grave with the burden of hard choices. And then comes the announcement: layoffs. Hundreds, sometimes thousands, of jobs erased. The reason offered, always the same: artificial intelligence.</p>
+
+<p>It is a story told with such frequency, such confidence, and such convenient timing that it has begun to feel less like an explanation and more like an alibi.</p>
+
+<p>Because here is what the data now unmistakably shows: the companies conducting AI-driven layoffs are not, by and large, seeing the promised returns. The AI is not delivering. And the workers being let go are paying the price for a gamble their employers have not yet won — and may never win.</p>
+
+<div class="stat-band">
+  <div class="stat-item">
+    <div class="stat-num">95%</div>
+    <div class="stat-label">of AI projects fail to deliver measurable profit impact<br><em style="font-size:10px;">(MIT GenAI Divide, 2025)</em></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">80%</div>
+    <div class="stat-label">of companies report workforce cuts tied to AI pilots<br><em style="font-size:10px;">(Gartner, 350 global executives)</em></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">0</div>
+    <div class="stat-label">correlation found between AI layoffs and financial returns<br><em style="font-size:10px;">(Gartner, 2026)</em></div>
+  </div>
+</div>
+
+<h2 class="decorated">The Numbers Behind the Headlines</h2>
+
+<p>Let us begin with what we know. In 2025, U.S. companies announced approximately 1.17 million layoffs — the highest level since the pandemic year of 2020. Of those, outplacement firm Challenger, Gray &amp; Christmas attributed roughly 55,000 directly to AI adoption. That sounds dramatic until you do the arithmetic: it amounts to less than 5% of total job cuts. Yet AI dominated the press releases.</p>
+
+<p>In 2026, the acceleration has been striking. In Q1 alone, 86 tech companies laid off more than 80,000 employees — nearly triple the equivalent period in 2025. By April, AI had become the leading cited reason for job cuts for the second consecutive month, with 21,490 planned layoffs attributed to artificial intelligence and automation. Through the first four months of 2026, the tally stands at 49,135 cuts officially blamed on AI.</p>
+
+<p>The names attached to these announcements read like a roll call of the corporate elite. Amazon eliminated 14,000 corporate roles. Microsoft cut approximately 15,000 jobs. Salesforce reduced its customer support team by 4,000, with CEO Marc Benioff declaring that AI now handles up to half of the company's work. Workday cut 8.5% of its workforce to "reallocate resources toward AI investments."</p>
+
+<div class="chart-container">
+  <div class="chart-title">AI-Attributed Layoffs — Select Major Companies, 2025–2026</div>
+  <div class="chart-subtitle">Announced workforce reductions citing AI or automation as a primary reason</div>
+  <div class="bar-row">
+    <div class="bar-label">Microsoft</div>
+    <div class="bar-track"><div class="bar-fill dark" style="width:100%"><span class="bar-value">~15,000</span></div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Amazon</div>
+    <div class="bar-track"><div class="bar-fill dark" style="width:93%"><span class="bar-value">14,000</span></div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Salesforce</div>
+    <div class="bar-track"><div class="bar-fill red" style="width:27%"><span class="bar-value">4,000</span></div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Workday</div>
+    <div class="bar-track"><div class="bar-fill red" style="width:12%"><span class="bar-value">1,750</span></div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Total AI-cited (2026 YTD)</div>
+    <div class="bar-track"><div class="bar-fill gold" style="width:67%"><span class="bar-value">49,135</span></div></div>
+  </div>
+</div>
+
+<h2 class="decorated">The Gartner Verdict</h2>
+
+<p>Into this charged landscape, the research and advisory firm Gartner released findings in May 2026 that should have stopped the corporate world cold. Surveying 350 global business executives at companies with annual revenues of at least $1 billion — all of them already actively piloting or deploying AI systems — Gartner found something remarkable in its plainness: cutting jobs had absolutely no correlation with improved financial returns from AI.</p>
+
+<p>The companies that cut their workforces the most showed nearly identical financial results to those that cut the least. In several cases, the ones that preserved more roles actually performed better. The enterprises reporting significant ROI from automation had laid off workers at the same pace as those reporting negative ROI.</p>
+
+<div class="pull-quote">
+  <blockquote>"You would anticipate that those who are getting the most ROI maybe then are able to cut the most — but that's not what we see."</blockquote>
+  <cite>— Helen Poitevin, VP Analyst, Gartner</cite>
+</div>
+
+<p>The implication is devastating in its simplicity. Corporate leadership has conflated two entirely different things: <em>freeing up cash</em> and <em>generating value</em>. Layoffs can accomplish the former. The data says they are doing essentially nothing for the latter.</p>
+
+<p>Poitevin was direct about where the real value was actually being found. The companies achieving the highest AI returns were not the ones replacing people — they were the ones augmenting them. She called it "people amplification": implementing AI to make workers more productive, expanding what existing employees could accomplish, rather than subtracting the employees themselves. "That's not where the productivity gains are going to be," she said of layoffs.</p>
+
+<div class="section-rule"><span class="section-rule-ornament">✦</span></div>
+
+<h2 class="decorated">A Technology in Search of Its Promise</h2>
+
+<p>To understand why AI is failing to deliver the returns companies expected, it helps to look at what the technology is actually doing inside organisations — as opposed to what the press releases imply.</p>
+
+<p>An IDC study found that a staggering 88% of proof-of-concept AI projects never reach production. MIT's landmark report, <em>The GenAI Divide: State of AI in Business 2025</em>, found that 95% of AI projects fail to deliver measurable profit-and-loss impact. These are not fringe findings. They represent the overwhelming consensus of academic and industry research.</p>
+
+<div class="highlight-box">
+  <div class="box-label">Key Finding</div>
+  <p>A Forrester Research report from January 2026 found that many companies announcing AI-related layoffs actually lack mature, vetted AI applications ready to replace the human roles being eliminated. The gap between the announcement and the capability is, in many cases, total.</p>
+</div>
+
+<p>The reasons for this gap are structural, not incidental. AI needs clean, well-organised data to function effectively — and most organisations' data is neither. It needs human oversight to catch errors before they compound into costly mistakes. It needs institutional knowledge: the kind of contextual understanding that lives in the minds of experienced employees, the kind of understanding that, once fired, does not come back.</p>
+
+<p>A Deloitte study put a clear timeline on realistic expectations: most companies reported achieving satisfactory ROI on a typical AI use case within two to four years. Two to four years. Yet the layoffs are happening now, this quarter, in service of a quarterly earnings beat.</p>
+
+<h2 class="decorated">Enter "AI Washing"</h2>
+
+<p>There is a phrase that has entered the lexicon of business analysts, HR professionals, and management scholars: <em>AI washing</em>. It describes the practice of attributing layoffs to artificial intelligence when the actual motivations are considerably more mundane.</p>
+
+<p>The phenomenon has been documented with uncomfortable specificity. A survey by Resume.org found that nearly 60% of U.S. hiring managers who cited AI as a reason for layoffs admitted they emphasised AI's role because it was "viewed more favourably than financial constraints." In other words: AI is the least bad excuse. Blame the algorithm, not the boardroom.</p>
+
+<div class="danger-box">
+  <div class="box-label">The Real Drivers</div>
+  <p>Management scholars point to a cluster of more prosaic explanations behind the current wave of layoffs: over-hiring during the pandemic boom of 2020–2022, margin pressure as interest rates normalised, slowing consumer demand in key markets, and in big tech specifically, the need to self-fund enormous AI infrastructure investments — Amazon, Meta, Google, and Microsoft are expected to invest a combined $650 billion in AI infrastructure in a single year — without damaging near-term financial results.</p>
+</div>
+
+<p>Scott Dylan, founder of tech investment fund NexaTech Ventures, described the reputational corrosion this creates among the employees who remain. Mercer's <em>Global Talent Trends 2026</em> report found that employee concerns about AI-related job loss have jumped from 28% in 2024 to 40% in 2026. More strikingly, 62% of employees feel their leaders underestimate the emotional and psychological impact of AI on the workforce. The trust damage may outlast the layoffs themselves.</p>
+
+<p>Peter Cohan, an associate professor of management at Babson College, offered a dry diagnosis: CEOs cite AI in layoff announcements because it is simply "the least bad reason companies can use." Blaming tariffs risks political blowback. Admitting to over-hiring admits strategic failure. AI, by contrast, arrives pre-packaged with a narrative of inevitability — as if the technology, not the executives, made the decision.</p>
+
+<div class="section-rule"><span class="section-rule-ornament">✦</span></div>
+
+<h2 class="decorated">The Jevons Paradox and the Long View</h2>
+
+<p>Not everyone is pessimistic. The debate has summoned a 19th-century economic insight back into relevance: the Jevons paradox. William Stanley Jevons observed in 1865 that as steam engines became more efficient, the demand for coal did not decrease — it increased, because efficiency made coal-powered industry more economically attractive, and more of it flourished. Apollo chief economist Torsten Slok has argued the same logic applies to AI: as the technology makes certain tasks cheaper, demand for those tasks — and for the human judgment surrounding them — will actually expand.</p>
+
+<p>Anthropic CEO Dario Amodei, who earlier in 2025 had warned starkly that AI could eliminate up to half of white-collar entry-level roles, notably softened his position in 2026, acknowledging that AI is more likely to augment work than annihilate it. But he added a caveat worth holding: AI is evolving faster than previous transformative technologies, and fast evolution can produce non-linear effects that comfortable economic theories do not anticipate.</p>
+
+<p>Gartner itself projects that autonomous business capabilities could actually create more jobs by 2028 to 2029. AI agent software spending is expected to reach $376.3 billion by 2027, up from $86.4 billion in 2025. The capabilities are improving fast. The investments will eventually mature.</p>
+
+<div class="highlight-box">
+  <div class="box-label">The Talent Risk</div>
+  <p>Companies that gutted their teams in 2025 and 2026 to hit a quarterly earnings number will be rebuilding from scratch in a tighter talent market. The demand for people who can guide, govern, and scale AI systems is building. Institutional knowledge, once lost, is not easily reconstructed from a prompt.</p>
+</div>
+
+<h2 class="decorated">What Should Actually Happen</h2>
+
+<p>The path forward that the evidence actually supports is not the dramatic one. It does not involve mass displacement, triumphant press releases, or stock bumps driven by headcount reduction announcements. It is slower, more deliberate, and frankly less newsworthy.</p>
+
+<p>It begins with companies being honest — with their shareholders, their employees, and themselves — about where AI actually works today and where it does not. It means investing in the data infrastructure that AI requires to function. It means rethinking workforce strategy around augmentation rather than replacement, building teams that use AI tools to accomplish more rather than teams that AI tools are supposed to make unnecessary.</p>
+
+<p>It means, in short, treating AI as the operational challenge it actually is, rather than the narrative convenience it has become.</p>
+
+<p>For workers, the message is harder but clarifying. The threat is not that AI will replace you tomorrow. The threat is that organisations using AI as a cover story will, in the process of pretending to modernise, eliminate roles that are not actually redundant — and replace them with nothing at all except a smaller payroll and a stock price that reverts to earth within two quarters. The strategic error will eventually correct itself. The individuals displaced in the interim are not abstractions.</p>
+
+<div class="pull-quote">
+  <blockquote>"Chasing value only through headcount reduction is likely to lead most organizations down a path of limited returns."</blockquote>
+  <cite>— Helen Poitevin, VP Analyst, Gartner, May 2026</cite>
+</div>
+
+<p>The AI revolution is real. Its potential is real. But potential is not performance. And performance — actual, measurable, profit-and-loss performance — is what the current wave of AI-justified layoffs is singularly failing to produce. The data is in. The verdict is delivered.</p>
+
+<p>The only remaining question is whether the executives conducting this particular theatre will read the reviews before the next act begins.</p>
+
+<div class="section-rule"><span class="section-rule-ornament">✦</span></div>
+
+<div class="article-footer">
+  <div class="footer-label">Filed Under</div>
+  <div class="tags">
+    <span class="tag">Artificial Intelligence</span>
+    <span class="tag">Layoffs</span>
+    <span class="tag">Future of Work</span>
+    <span class="tag">Corporate Strategy</span>
+    <span class="tag">Technology</span>
+    <span class="tag">ROI</span>
+  </div>
+  <p class="footer-note">Sources: Gartner Global Executive Survey (350 respondents, Q4 2025); MIT GenAI Divide: State of AI in Business 2025; Challenger, Gray &amp; Christmas Monthly Layoff Reports 2025–2026; IDC AI Project Analysis; Forrester Research January 2026; Nexus IT Group Report, March 2026; Mercer Global Talent Trends 2026; Fortune, CIO, Computerworld, The Hill, May 2026.</p>
+</div>
+
+</body>
+</html>
