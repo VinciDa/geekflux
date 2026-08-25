@@ -2,7 +2,7 @@
   'use strict';
 
   var WRITE_KEY = '3e8b1c6a-9f24-4d71-b5a0-2c7e91d4f608';
-  var ENDPOINT = 'https://quizbanao.com/api/v1/audit-events?write_key=' + WRITE_KEY;
+  var ENDPOINT = 'https://quizbanao.com/api/v1/audit-events';
   var APP_NAME = 'geekflux_web';
 
   function uuid() {
@@ -54,18 +54,18 @@
       properties: properties
     };
 
-    var body = JSON.stringify(payload);
-    var blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
-
-    if (navigator.sendBeacon && navigator.sendBeacon(ENDPOINT, blob)) {
-      return;
-    }
-
+    // Auth requires X-Audit-Write-Key (query write_key returns 401).
+    // sendBeacon cannot set custom headers, so use fetch + keepalive.
     fetch(ENDPOINT, {
       method: 'POST',
-      body: body,
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-      keepalive: true
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'X-Audit-Write-Key': WRITE_KEY
+      },
+      keepalive: true,
+      mode: 'cors'
     }).catch(function () {});
   }
 
