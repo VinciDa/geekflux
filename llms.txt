@@ -1,0 +1,38 @@
+# GeekFlux
+
+> An independent magazine covering studying, reading, habits, technology, and culture — written to help people learn, focus, and stick with what matters.
+
+GeekFlux also surfaces practical iOS tools for spaced-repetition revision (Revu), focus-first reading (ReadFast), and habit streaks (Streakly).
+
+## Guides (start here)
+
+- [Studying & Memory](https://geekflux.in/studying-and-memory/): Spaced repetition, revision planning, and durable learning systems
+- [Reading & Focus](https://geekflux.in/reading-and-focus/): Speed, attention, PDFs, and finishing what you start
+- [Habits & Routines](https://geekflux.in/habits-and-routines/): Building habits, streak psychology, and realistic mornings
+
+## Studying & Memory
+
+- [Study Smarter: A Learning System You Can Sustain](https://geekflux.in/education-study-system/)
+- [Spaced Repetition Without Flashcards](https://geekflux.in/education-spaced-repetition-without-flashcards/)
+- [How to Build a Revision Timetable That Survives Exam Season](https://geekflux.in/education-revision-timetable-exam-season/)
+- [The Forgetting Curve, Explained](https://geekflux.in/education-forgetting-curve-explained/)
+- [Anki Alternatives in 2026](https://geekflux.in/education-anki-alternatives-2026/)
+
+## Reading & Focus
+
+- [Why You Keep Rereading the Same Sentence](https://geekflux.in/education-rereading-same-sentence/)
+- [Bionic Reading: What 2026 Research Actually Shows](https://geekflux.in/education-bionic-reading-research-2026/)
+- [Speed Reading Is Only Half the Skill](https://geekflux.in/education-speed-reading-remember-what-you-read/)
+- [How to Read Academic Papers and PDFs Without Losing Focus](https://geekflux.in/education-read-academic-papers-pdfs-focus/)
+- [Why You Keep Abandoning Books](https://geekflux.in/culture-abandoning-books-dnf/)
+
+## Habits & Routines
+
+- [How Long Does It Really Take to Build a Habit?](https://geekflux.in/productivity-how-long-to-build-a-habit/)
+- [What Happens When You Break Your Streak](https://geekflux.in/productivity-breaking-a-habit-streak/)
+- [Habit Stacking for a Real Morning](https://geekflux.in/productivity-habit-stacking-morning-routine/)
+
+## Optional
+
+- [Homepage](https://geekflux.in/)
+- [Sitemap](https://geekflux.in/sitemap.xml)

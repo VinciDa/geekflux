@@ -54,8 +54,6 @@
       properties: properties
     };
 
-    // Auth requires X-Audit-Write-Key (query write_key returns 401).
-    // sendBeacon cannot set custom headers, so use fetch + keepalive.
     fetch(ENDPOINT, {
       method: 'POST',
       body: JSON.stringify(payload),
@@ -72,6 +70,7 @@
   function appFromHref(href) {
     if (href.indexOf('readfast') !== -1) return 'readfast';
     if (href.indexOf('revu') !== -1) return 'revu';
+    if (href.indexOf('streakly') !== -1) return 'streakly';
     return 'unknown';
   }
 
@@ -96,6 +95,7 @@
   }
 
   function trackStoreClick(link) {
+    var isInline = link.classList.contains('app-cta-inline');
     var aside = link.closest('.article-aside');
     var position = 1;
     if (aside) {
@@ -111,7 +111,7 @@
     var app = appFromHref(link.href);
     sendEvent('store_click', {
       page: currentPage(),
-      placement: 'sidebar_' + app,
+      placement: isInline ? 'inline_cta' : 'sidebar_' + app,
       store: 'ios',
       app: app,
       position: position
@@ -119,7 +119,6 @@
   }
 
   function trackArticleClick(link, placement) {
-    var container = link.closest('.post-card') || link.closest('.trend-list');
     var position = 1;
 
     if (link.closest('.post-card')) {
@@ -153,7 +152,7 @@
       var target = e.target.closest('a');
       if (!target) return;
 
-      if (target.classList.contains('app-promo')) {
+      if (target.classList.contains('app-promo') || target.classList.contains('app-cta-inline')) {
         trackStoreClick(target);
         return;
       }
