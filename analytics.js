@@ -68,9 +68,9 @@
   }
 
   function appFromHref(href) {
-    if (href.indexOf('readfast') !== -1) return 'readfast';
-    if (href.indexOf('revu') !== -1) return 'revu';
-    if (href.indexOf('streakly') !== -1) return 'streakly';
+    if (href.indexOf('id6754703001') !== -1 || href.indexOf('readfast') !== -1) return 'readfast';
+    if (href.indexOf('id6748602127') !== -1 || href.indexOf('revu') !== -1) return 'revu';
+    if (href.indexOf('id6749272240') !== -1 || href.indexOf('streakly') !== -1) return 'streakly';
     return 'unknown';
   }
 

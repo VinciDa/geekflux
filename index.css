@@ -285,12 +285,19 @@ a { color: inherit; text-decoration: none; }
     opacity: 0.6;
 }
 
-.thumb--art         { background: linear-gradient(160deg, #d68a6a, var(--c-art) 60%, #4a1a10); }
-.thumb--tech        { background: linear-gradient(160deg, #6b8cbf, var(--c-tech) 55%, #10233f); }
-.thumb--lifestyle   { background: linear-gradient(160deg, #9ab872, var(--c-lifestyle) 60%, #2b3d18); }
-.thumb--productivity{ background: linear-gradient(160deg, #e0b268, var(--c-productivity) 55%, #4a3208); }
-.thumb--education   { background: linear-gradient(160deg, #a88ab8, var(--c-education) 60%, #2e1d3d); }
-.thumb--culture     { background: linear-gradient(160deg, #c4738a, var(--c-culture) 55%, #3a1320); }
+.thumb--art         { background-image: linear-gradient(160deg, #d68a6a, var(--c-art) 60%, #4a1a10); }
+.thumb--tech        { background-image: linear-gradient(160deg, #6b8cbf, var(--c-tech) 55%, #10233f); }
+.thumb--lifestyle   { background-image: linear-gradient(160deg, #9ab872, var(--c-lifestyle) 60%, #2b3d18); }
+.thumb--productivity{ background-image: linear-gradient(160deg, #e0b268, var(--c-productivity) 55%, #4a3208); }
+.thumb--education   { background-image: linear-gradient(160deg, #a88ab8, var(--c-education) 60%, #2e1d3d); }
+.thumb--culture     { background-image: linear-gradient(160deg, #c4738a, var(--c-culture) 55%, #3a1320); }
+
+/* Inline background-image on thumbs must win over category gradients */
+.thumb[style*="background-image"] {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .thumb--wide { aspect-ratio: 3 / 2; }
 .thumb--square { aspect-ratio: 1 / 1; }
